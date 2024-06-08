@@ -12,6 +12,8 @@ import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.ipostu.thenotes.MainActivity
@@ -114,8 +116,17 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
 
     private fun searchNotes(query: String?) {
         val searchQuery = "%$query%"
-        notesViewModel.searchNote(searchQuery).observe(this) { list ->
-            noteAdapter.differ.submitList(list)
+        val liveResult: LiveData<List<Note>> = notesViewModel.searchNote(searchQuery)
+        liveResult.observe(this, SearchNoteObserver(liveResult, noteAdapter))
+    }
+
+    private class SearchNoteObserver(
+        private val liveResult: LiveData<List<Note>>,
+        private val noteAdapter: NoteAdapter
+    ) : Observer<List<Note>> {
+        override fun onChanged(value: List<Note>) {
+            noteAdapter.differ.submitList(value)
+            liveResult.removeObserver(this)
         }
     }
 }
