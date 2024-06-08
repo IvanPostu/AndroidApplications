@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
@@ -17,8 +16,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins"
-            android:text="Add Note."
-            android:textColor="@color/red"
+            android:text="@string/add_note"
+            android:textColor="@color/royal_blue"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -28,9 +27,9 @@
             android:layout_height="60dp"
             android:layout_below="@id/addNoteHeading"
             android:layout_marginTop="16dp"
-            android:background="@drawable/pink_border"
+            android:background="@drawable/colored_border"
             android:fontFamily="@font/poppins"
-            android:hint="Enter the title"
+            android:hint="@string/enter_the_title"
             android:maxLines="1"
             android:padding="12dp"
             android:textSize="20sp" />
@@ -41,7 +40,7 @@
             android:layout_height="match_parent"
             android:layout_below="@id/addNoteTitle"
             android:layout_marginTop="12dp"
-            android:background="@drawable/pink_border"
+            android:background="@drawable/colored_border"
             android:fontFamily="@font/poppins"
             android:gravity="top"
             android:hint="Enter the description"

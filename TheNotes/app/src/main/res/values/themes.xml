@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Theme.NotesRoomPractice." parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/pink</item>
-        <item name="colorPrimaryVariant">@color/pink</item>
+        <item name="colorPrimary">@color/blue_grey</item>
+        <item name="colorPrimaryVariant">@color/blue_grey</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/pink</item>
-        <item name="colorSecondaryVariant">@color/pink</item>
+        <item name="colorSecondary">@color/blue_horizon</item>
+        <item name="colorSecondaryVariant">@color/blue_horizon</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/colorSecondaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>

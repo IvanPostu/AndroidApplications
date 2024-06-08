@@ -12,7 +12,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/pink_border"
+            android:background="@drawable/colored_border"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -22,8 +22,8 @@
                 android:layout_height="0dp"
                 android:layout_weight="200"
                 android:fontFamily="@font/poppins"
-                android:text="Note Title"
-                android:textColor="@color/red"
+                android:text="@string/note_title"
+                android:textColor="@color/royal_blue"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -34,8 +34,8 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/poppins"
                 android:maxHeight="170dp"
-                android:text="Description"
-                android:textColor="@color/pink"
+                android:text="@string/description"
+                android:textColor="@color/blue_horizon"
                 android:textSize="14sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

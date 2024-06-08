@@ -34,7 +34,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         homeBinding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -88,10 +88,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), SearchView.OnQueryTextLis
         }
 
         if (notes.isNotEmpty()) {
-            binding.emptyNotesImage.visibility = View.GONE
+            binding.whiteNotebookWrapper.visibility = View.GONE
             binding.homeRecyclerView.visibility = View.VISIBLE
         } else {
-            binding.emptyNotesImage.visibility = View.VISIBLE
+            binding.whiteNotebookWrapper.visibility = View.VISIBLE
             binding.homeRecyclerView.visibility = View.GONE
         }
     }

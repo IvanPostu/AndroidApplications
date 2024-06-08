@@ -13,9 +13,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="28dp"
-            android:backgroundTint="@color/pink"
+            android:backgroundTint="@color/blue_horizon"
             android:clickable="true"
-            android:contentDescription="image"
+            android:focusable="true"
             android:tintMode="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,11 +29,45 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/emptyNotesImage"
-            android:visibility="gone"
-            android:src="@drawable/emptybkg_139x300"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/white_notebook_wrapper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:src="@drawable/white_notebook"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/emptyNotesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Empty Notes."
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/emptyNotesText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add your first note."
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/emptyNotesTitle"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
