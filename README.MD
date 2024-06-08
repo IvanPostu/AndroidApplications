@@ -1,8 +1,13 @@
 # The Notes Android Application
 
-## Topics:
-- MVVM(Model-view-viewmodel)
+## Topics
 - Room Database
-- Coroutines
-- Navigation Component
+- MVVM
 
+## UI:
+
+<img style="max-height: 500px" src="./forReadme/img1.jpg" />
+<img style="max-height: 500px" src="./forReadme/img2.jpg" />
+<img style="max-height: 500px" src="./forReadme/img3.jpg" />
+<img style="max-height: 500px" src="./forReadme/img4.jpg" />
+<img style="max-height: 500px" src="./forReadme/img5.jpg" />
