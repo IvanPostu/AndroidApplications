@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        app:cardElevation="6dp"
-        app:cardCornerRadius="10dp">
+        app:cardCornerRadius="10dp"
+        app:cardElevation="6dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:background="@drawable/pink_border"
+            android:orientation="vertical"
             android:padding="16dp">
 
             <TextView
@@ -25,16 +26,17 @@
                 android:textColor="@color/red"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
             <TextView
+                android:id="@+id/noteDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/noteDesc"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
                 android:maxHeight="170dp"
                 android:text="Description"
-                android:textSize="14sp"
-                android:fontFamily="@font/poppins"
-                android:textColor="@color/pink"/>
+                android:textColor="@color/pink"
+                android:textSize="14sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </layout>
