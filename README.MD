@@ -21,6 +21,23 @@ $ emulator -avd Pixel_API_30 # example
 
 ```
 
+## Usage of `view-bindings`
+inside `app: sbuild.gradle`
+```
+android {
+    ...
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+will allow to use 
+val binding = RowBinding.inflate(layoutInflater)
+...
+binding.titleView.text = myNote.noteName
+```
+
+
 ## The Notes App:
 - Room Database
 - MVVM
