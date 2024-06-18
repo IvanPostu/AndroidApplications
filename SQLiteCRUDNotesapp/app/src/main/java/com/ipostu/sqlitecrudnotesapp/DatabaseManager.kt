@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteQueryBuilder
 import android.widget.Toast
 
-class DatabaseManager {
+class DatabaseManager(context: Context) {
 
     companion object {
         var DB_NAME = "MyNotes"
@@ -18,7 +18,7 @@ class DatabaseManager {
         var COLUMN_DESCRIPTION = "Description"
         var DB_VERSION = 1
 
-        var SQL_CREATE_TABLE = "CREATE TABLE IF NOTE EXISTS " + DB_TABLE +
+        var SQL_CREATE_TABLE = "CREATE TABLE IF NOT EXISTS " + DB_TABLE +
                 " ( " + COLUMN_ID + " INTEGER PRIMARY KEY, " +
                 COLUMN_TITLE + " TEXT, " +
                 COLUMN_DESCRIPTION + " TEXT);"
@@ -28,8 +28,8 @@ class DatabaseManager {
         var sqlDB: SQLiteDatabase? = null
     }
 
-    constructor(context: Context) {
-        var db = DatabaseHelperNotes(context)
+    init {
+        val db = DatabaseHelperNotes(context)
         sqlDB = db.writableDatabase
     }
 

@@ -1,15 +1,18 @@
 package com.ipostu.sqlitecrudnotesapp
 
+import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.ClipboardManager
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import com.ipostu.sqlitecrudnotesapp.databinding.ActivityMainBinding
 import com.ipostu.sqlitecrudnotesapp.databinding.RowBinding
 
@@ -22,11 +25,48 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loadQuery("%")
+    }
+
+    override fun onResume() {
+        loadQuery("%")
+        super.onResume()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
-        return null // TODO
+        val search = menu!!.findItem(R.id.app_bar_search)
+        val searchView = search.actionView as SearchView
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                loadQuery("%$query%")
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                loadQuery("%$newText%")
+                return false
+            }
+
+        })
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.add_note -> {
+                startActivity(Intent(this, AddNoteActivity::class.java))
+            }
+            R.id.action_Settings -> {
+                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun loadQuery(title: String) {
@@ -35,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         val selectionArgs = arrayOf(title)
         val cursor = dbManager.query(projections, "Title like ?", selectionArgs, "Title")
 
+        listNotes.clear()
         if (cursor.moveToFirst()) {
             do {
                 val ID = cursor.getInt(cursor.getColumnIndexOrThrow("ID"))
@@ -45,7 +86,14 @@ class MainActivity : AppCompatActivity() {
             } while (cursor.moveToNext())
         }
 
-        var myNotesAdapter = MyNotesAdapter(this, listNotes)
+        val myNotesAdapter = MyNotesAdapter(this, listNotes)
+        binding.notesListView.adapter = myNotesAdapter
+
+        val total = listNotes.size
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.subtitle = "You have $total note(s) in the list..."
+        }
     }
 
     inner class MyNotesAdapter(
