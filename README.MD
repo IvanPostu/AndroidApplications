@@ -43,11 +43,12 @@ binding.titleView.text = myNote.noteName
 - MVVM
 - Navigation safe args
 
-<img style="height: 450px" src="./forReadme/img1.jpg" /> \
-<img style="height: 450px" src="./forReadme/img2.jpg" /> \
-<img style="height: 450px" src="./forReadme/img3.jpg" /> \
-<img style="height: 450px" src="./forReadme/img4.jpg" /> \
-<img style="height: 450px" src="./forReadme/img5.jpg" /> 
+|   |  |
+| ------------- | ------------- |
+| <img style="height: 450px" src="./forReadme/img1.jpg" />  | <img style="height: 450px" src="./forReadme/img2.jpg" />   |
+| <img style="height: 450px" src="./forReadme/img3.jpg" />  | <img style="height: 450px" src="./forReadme/img4.jpg" />  |
+| <img style="height: 450px" src="./forReadme/img5.jpg" />  |   |
+
 
 ## The News App:
 - Room Database
@@ -55,10 +56,23 @@ binding.titleView.text = myNote.noteName
 - Retrofit
 - Navigation safe args
 
-<img style="height: 450px" src="./forReadme/q1.jpg" /> \
-<img style="height: 450px" src="./forReadme/q2.jpg" /> \
-<img style="height: 450px" src="./forReadme/q3.jpg" /> \
-<img style="height: 450px" src="./forReadme/q4.jpg" /> 
+|   |  |
+| ------------- | ------------- |
+| <img style="height: 450px" src="./forReadme/q1.jpg" />  | <img style="height: 450px" src="./forReadme/q2.jpg" />   |
+| <img style="height: 450px" src="./forReadme/q3.jpg" />  | <img style="height: 450px" src="./forReadme/q4.jpg" />  |
+
+## The News App:
+- Room Database
+- MVVM
+- Retrofit
+- Navigation safe args
+
+|   |  |
+| ------------- | ------------- |
+| <img style="height: 450px" src="./forReadme/q1_1.png" />  | <img style="height: 450px" src="./forReadme/q1_2.png" />   |
+| <img style="height: 450px" src="./forReadme/q1_3.png" />  | <img style="height: 450px" src="./forReadme/q1_4.png" />  |
+| <img style="height: 450px" src="./forReadme/q1_5.png" />  | <img style="height: 450px" src="./forReadme/q1_6.png" />  |
+
 
 ## References 
 - https://www.svgrepo.com/
