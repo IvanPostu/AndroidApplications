@@ -26,7 +26,11 @@ class AddNoteActivity : AppCompatActivity() {
         try {
             val bundle: Bundle? = intent.extras
             id = bundle!!.getInt("ID", 0)
-            if(id!=0) {
+            if (id != 0) {
+
+                supportActionBar!!.title = "Update Note"
+                binding.addButton.text = "Update"
+
                 binding.titleEditText.setText(bundle.getString("name"))
                 binding.descriptionEditText.setText(bundle.getString("description"))
             }
@@ -52,10 +56,10 @@ class AddNoteActivity : AppCompatActivity() {
         if (id == 0) {
             val ID = dbManager.insert(values)
             if (ID > 0) {
-                Toast.makeText(this, "Note is added", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Note is updated", Toast.LENGTH_SHORT).show()
                 finish()
             } else {
-                Toast.makeText(this, "Error adding note", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Error updating note", Toast.LENGTH_SHORT).show()
             }
         } else {
             val selectionArgs = arrayOf(id.toString())

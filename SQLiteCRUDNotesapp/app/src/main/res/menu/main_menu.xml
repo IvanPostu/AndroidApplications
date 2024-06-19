@@ -5,8 +5,8 @@
     tools:ignore="HardcodedText">
 
     <item
-        android:id="@+id/action_Settings"
-        android:title="Settings" />
+        android:id="@+id/action_sort"
+        android:title="Sort" />
 
     <item
         android:id="@+id/app_bar_search"

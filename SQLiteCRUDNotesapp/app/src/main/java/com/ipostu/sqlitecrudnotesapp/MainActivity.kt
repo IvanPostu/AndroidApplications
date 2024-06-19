@@ -3,6 +3,7 @@ package com.ipostu.sqlitecrudnotesapp
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.ClipboardManager
 import android.view.Menu
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import com.ipostu.sqlitecrudnotesapp.databinding.ActivityMainBinding
@@ -20,12 +22,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private var listNotes = ArrayList<Note>()
+    private lateinit var sharePreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sharePreferences = this.getSharedPreferences("My_Data", MODE_PRIVATE)
         loadQuery("%")
     }
 
@@ -62,18 +66,84 @@ class MainActivity : AppCompatActivity() {
             R.id.add_note -> {
                 startActivity(Intent(this, AddNoteActivity::class.java))
             }
-            R.id.action_Settings -> {
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
+
+            R.id.action_sort -> {
+                showSortDialog()
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun showSortDialog() {
+        val sortOptions =
+            arrayOf("Newest", "Oldest", "Title(Ascending)", "Title(Descending)")
+        val alertBuilder = AlertDialog.Builder(this)
+        val sortingOptionString =
+            sharePreferences.getString("Sort", OrderOption.TITLE_ASC.name) as String
+        val sortOption = OrderOption.valueOf(sortingOptionString)
+
+        var checkedItem = -1
+        if (OrderOption.ID_DESC == sortOption) {
+            checkedItem = 0;
+        }
+        if (OrderOption.ID_ASC == sortOption) {
+            checkedItem = 1;
+        }
+        if (OrderOption.TITLE_ASC == sortOption) {
+            checkedItem = 2;
+        }
+        if (OrderOption.TITLE_DESC == sortOption) {
+            checkedItem = 3;
+        }
+
+        alertBuilder.setTitle("Sort by")
+        alertBuilder.setIcon(R.drawable.ic_action_sort)
+        alertBuilder.setSingleChoiceItems(sortOptions, checkedItem) { dialogInterface, i ->
+            if (i == 0) {
+                Toast.makeText(this, sortOptions[i], Toast.LENGTH_SHORT).show()
+                val editor = sharePreferences.edit()
+                editor.putString("Sort", OrderOption.ID_DESC.name)
+                editor.apply()
+                loadQuery("%")
+            }
+            if (i == 1) {
+                Toast.makeText(this, sortOptions[i], Toast.LENGTH_SHORT).show()
+                val editor = sharePreferences.edit()
+                editor.putString("Sort", OrderOption.ID_ASC.name)
+                editor.apply()
+                loadQuery("%")
+            }
+            if (i == 2) {
+                Toast.makeText(this, sortOptions[i], Toast.LENGTH_SHORT).show()
+                val editor = sharePreferences.edit()
+                editor.putString("Sort", OrderOption.TITLE_ASC.name)
+                editor.apply()
+                loadQuery("%")
+            }
+            if (i == 3) {
+                Toast.makeText(this, sortOptions[i], Toast.LENGTH_SHORT).show()
+                val editor = sharePreferences.edit()
+                editor.putString("Sort", OrderOption.TITLE_DESC.name)
+                editor.apply()
+                loadQuery("%")
+            }
+            dialogInterface.dismiss()
+        }
+
+        alertBuilder.create().show()
     }
 
     private fun loadQuery(title: String) {
         val dbManager = DatabaseManager(this)
         val projections = arrayOf("ID", "Title", "Description")
         val selectionArgs = arrayOf(title)
-        val cursor = dbManager.query(projections, "Title like ?", selectionArgs, "Title")
+        val sortingOptionString =
+            sharePreferences.getString("Sort", OrderOption.TITLE_ASC.name) as String
+        val sortOption = OrderOption.valueOf(sortingOptionString)
+        val cursor = dbManager.query(
+            projections, "Title like ?", selectionArgs,
+            sortOption.columnName + " " + sortOption.sortOrder.value
+        )
 
         listNotes.clear()
         if (cursor.moveToFirst()) {
@@ -157,5 +227,16 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra("name", note.noteName)
         intent.putExtra("description", note.noteDescription)
         startActivity(intent)
+    }
+
+    enum class OrderOption(val columnName: String, val sortOrder: SortOrder) {
+        TITLE_DESC("Title", SortOrder.DESC),
+        TITLE_ASC("Title", SortOrder.ASC),
+        ID_DESC("ID", SortOrder.DESC),
+        ID_ASC("Description", SortOrder.ASC);
+    }
+
+    enum class SortOrder(val value: String) {
+        ASC("ASC"), DESC("DESC")
     }
 }

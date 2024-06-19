@@ -16,10 +16,10 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="3dp"
-            app:cardElevation="3dp"
             android:layout_margin="5dp"
-            app:cardBackgroundColor="@color/white">
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="3dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -32,29 +32,32 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:hint="Enter Title"
+                    android:inputType="textCapSentences"
                     android:padding="10dp"
                     android:singleLine="true"
                     android:textStyle="bold" />
+
                 <EditText
                     android:id="@+id/descriptionEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:background="@null"
                     android:gravity="top"
                     android:hint="Enter description..."
+                    android:inputType="textCapSentences|textMultiLine"
                     android:minHeight="100dp"
-                    android:padding="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:padding="10dp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        
+
         <Button
             android:id="@+id/addButton"
             style="@style/Base.Widget.AppCompat.Button.Colored"
-            android:text="Add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginEnd="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="Add" />
     </LinearLayout>
 
 </ScrollView>
