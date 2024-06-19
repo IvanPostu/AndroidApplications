@@ -18,11 +18,11 @@
         tools:ignore="HardcodedText">
 
         <TextView
-            android:textColor="@color/colorPrimary"
             android:id="@+id/titleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Title"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -47,31 +47,43 @@
 
             <ImageButton
                 android:id="@+id/deleteButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginEnd="5dp"
-                android:src="@drawable/ic_action_delete" />
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_action_delete"
+                app:tint="@android:color/darker_gray" />
 
             <ImageButton
                 android:id="@+id/editButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginEnd="5dp"
-                android:src="@drawable/ic_action_edit" />
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_action_edit"
+                app:tint="@android:color/darker_gray" />
 
             <ImageButton
                 android:id="@+id/copyButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginEnd="5dp"
-                android:src="@drawable/ic_action_copy" />
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_action_copy"
+                app:tint="@android:color/darker_gray" />
 
             <ImageButton
                 android:id="@+id/shareButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginEnd="5dp"
-                android:src="@drawable/ic_action_share" />
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_action_share"
+                app:tint="@android:color/darker_gray" />
         </LinearLayout>
 
     </LinearLayout>
