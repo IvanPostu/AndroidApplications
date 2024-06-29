@@ -47,7 +47,6 @@ binding.titleView.text = myNote.noteName
 | ------------- | ------------- |
 | <img style="height: 450px" src="./forReadme/img1.jpg" />  | <img style="height: 450px" src="./forReadme/img2.jpg" />   |
 | <img style="height: 450px" src="./forReadme/img3.jpg" />  | <img style="height: 450px" src="./forReadme/img4.jpg" />  |
-| <img style="height: 450px" src="./forReadme/img5.jpg" />  |   |
 
 
 ## The News App:
@@ -72,6 +71,14 @@ binding.titleView.text = myNote.noteName
 | <img style="height: 450px" src="./forReadme/q1_1.png" />  | <img style="height: 450px" src="./forReadme/q1_2.png" />   |
 | <img style="height: 450px" src="./forReadme/q1_3.png" />  | <img style="height: 450px" src="./forReadme/q1_4.png" />  |
 | <img style="height: 450px" src="./forReadme/q1_5.png" />  | <img style="height: 450px" src="./forReadme/q1_6.png" />  |
+
+## Navigation Menu Example:
+- Splash Screen (library)
+- Navigation Menu
+
+|   |  |
+| ------------- | ------------- |
+| <img style="height: 450px" src="./forReadme/nav1.jpg" />  | <img style="height: 450px" src="./forReadme/nav2.jpg" />   |
 
 
 ## References 
