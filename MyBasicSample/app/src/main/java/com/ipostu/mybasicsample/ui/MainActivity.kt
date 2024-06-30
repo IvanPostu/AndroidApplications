@@ -9,7 +9,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        getSupportFragmentManager().beginTransaction()
-//            .add(R.id.fragment_container, fragment, ProductListFragment.TAG).commit();
+        val fragment = ProductListFragment()
+        getSupportFragmentManager().beginTransaction()
+            .add(R.id.fragment_container, fragment, ProductListFragment.TAG).commit();
     }
 }
