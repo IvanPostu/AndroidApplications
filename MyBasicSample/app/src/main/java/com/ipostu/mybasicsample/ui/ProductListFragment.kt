@@ -16,12 +16,12 @@ class ProductListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
+        android.view.View.INVISIBLE
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_product_list, container, false);
 
         // Set the value for isLoading
-        binding.setIsLoading("Loading..."); // Replace with your string value
+        binding.setIsLoading(true); // Replace with your string value
 
         // Set the lifecycle owner for LiveData updates (if applicable)
         binding.setLifecycleOwner(this);
