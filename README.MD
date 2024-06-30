@@ -33,7 +33,7 @@ inside `app: sbuild.gradle`
 android {
     ...
     buildFeatures {
-        viewBinding true
+        viewBinding = true
     }
 }
 
