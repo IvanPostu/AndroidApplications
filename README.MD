@@ -15,6 +15,12 @@ $ nix-shell --run bash --argstr jdkVersion 17 # default is 8
 # pair physical device through wi-fi
 $ adb pair host:port
 
+# pair physical device through wi-fi
+$ adb pair host:port
+
+# If the device is busy or not responding
+$ adb kill-server
+
 # run virtual device
 $ emulator -list-avds
 $ emulator -avd Pixel_API_30 # example
@@ -80,6 +86,17 @@ binding.titleView.text = myNote.noteName
 | ------------- | ------------- |
 | <img style="height: 450px" src="./forReadme/nav1.jpg" />  | <img style="height: 450px" src="./forReadme/nav2.jpg" />   |
 
+## Q&A
+- How to mark activity as a entry point in application?
+  - `android:exported="true"` and `intent-filter` as described below
+    ```xml
+    <activity android:name=".ui.MainActivity" android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    ```
 
 ## References 
 - https://www.svgrepo.com/
