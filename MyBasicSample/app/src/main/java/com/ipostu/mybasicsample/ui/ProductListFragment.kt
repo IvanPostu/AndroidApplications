@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.ipostu.mybasicsample.R
 import com.ipostu.mybasicsample.databinding.FragmentProductListBinding
+import com.ipostu.mybasicsample.viewmodel.ProductListViewModel
 
 class ProductListFragment : Fragment() {
     private lateinit var binding: FragmentProductListBinding
@@ -27,6 +29,12 @@ class ProductListFragment : Fragment() {
         binding.setLifecycleOwner(this);
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val viewModel: ProductListViewModel =
+            ViewModelProvider(this).get(ProductListViewModel::class.java)
     }
 
     companion object {
