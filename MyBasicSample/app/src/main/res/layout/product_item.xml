@@ -29,7 +29,7 @@
                 android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:contentDescription="Name of the product"
+                android:contentDescription="@string/cd_product_name"
                 android:text="@{product.name}"/>
 
             <TextView
