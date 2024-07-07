@@ -100,3 +100,4 @@ binding.titleView.text = myNote.noteName
 
 ## References 
 - https://www.svgrepo.com/
+- [**Google Android Samples**](https://github.com/android/architecture-components-samples)

@@ -22,7 +22,7 @@ public class AppExecutors {
 
     private final Executor mMainThread;
 
-    private AppExecutors(Executor diskIO, Executor networkIO, Executor mainThread) {
+    AppExecutors() {
         this.mDiskIO = Executors.newSingleThreadExecutor();
         this.mNetworkIO = Executors.newFixedThreadPool(3);
         this.mMainThread = new MainThreadExecutor();
